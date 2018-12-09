@@ -1,2 +1,7 @@
-endpoint: https://us1.prisma.sh/matthew-clark-33e8cc/my-sick-fits/dev
-datamodel: datamodel.prisma
+endpoint: ${env:PRISMA_ENDPOINT}
+datamodel: datamodel.graphql
+# secret: ${env:PRISMA_SECRET}
+# leaving secret commented out makes development easy, but the DB is wide open so when we go to prod we need to uncomment that
+hooks:
+  post-deploy:
+    - graphql get-schema -p prisma
