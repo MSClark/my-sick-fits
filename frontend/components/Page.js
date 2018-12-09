@@ -4,7 +4,8 @@ import Meta from './Meta';
 import styled, {ThemeProvider, injectGlobal} from 'styled-components';
 /* 
     Theme provider  allows usage of react context api so you can reference things multiple levels down in components and not have to pass things down many times 
-    Inject global brings in that react context api
+    Inject global brings in that react context api. has to do with global styling
+    Only components inside the theme provider have access to the theme
 */
 const theme = {
     red: '#FF0000',
@@ -50,6 +51,12 @@ injectGlobal`
         font-size: 1.5rem;
         line-height: 2;
         font-family: 'radnika_next';
+    }
+    a{
+        text-decoration: none;
+        color: ${theme.black}; /*accessed like this because theme is in this file. If it were not in the file we would need to export it and reference it. 
+                                (not using props reference because we're outside the theme provider)*/
+        
     }
 `;
 
