@@ -1,0 +1,8 @@
+Styled components 
+
+Next js
+
+    Routing
+
+NProgress
+    css is linked in meta component 
