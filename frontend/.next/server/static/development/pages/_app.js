@@ -105,54 +105,88 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./components/Nav.js");
-var _jsxFileName = "C:\\Users\\MSClark\\Documents\\Hobbyscopes\\Advanced-React\\sick-fits\\frontend\\components\\Header.js";
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "next/link");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "C:\\Users\\MSClark\\Documents\\Hobbyscopes\\my-sick-fits\\frontend\\components\\Header.js";
 
 
+
+
+var Logo = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.h1.withConfig({
+  displayName: "Header__Logo",
+  componentId: "sc-2cpreo-0"
+})(["font-size:4rem;margin-left:2rem;position:relative;z-index:2;transform:skew(-7deg);a{padding:0.5rem 1rem;background:", ";color:white;text-transform:uppercase;text-decoration:none;}@media (max-width:1300px){margin:0;text-align:center;}"], function (props) {
+  return props.theme.red;
+}); // media query applies to whole component, can put inside a tag if you only wanted it to apply to the link
+// a styling only applies to a tags used in the logo component
+
+var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.header.withConfig({
+  displayName: "Header__StyledHeader",
+  componentId: "sc-2cpreo-1"
+})([".bar{border-bottom:10px solid ", ";display:grid;grid-template-columns:auto 1fr;justify-content:space-between;align-items:stretch;@media (max-width:1300px){grid-template-columns:1fr;justify-content:center;}}.sub-bar{display:grid;grid-template-columns:auto 1fr;border-bottom:1px solid ", ";}"], function (props) {
+  return props.theme.black;
+}, function (props) {
+  return props.theme.lightgrey;
+});
 
 var Header = function Header() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeader, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 3
+      lineNumber: 45
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "bar",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4
+      lineNumber: 46
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Logo, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 48
     },
     __self: this
-  }, "Sick Fits"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, "Sick Fits"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 50
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sub-bar",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 52
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 53
     },
     __self: this
   }, "Search")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 55
     },
     __self: this
   }, "Cart"));
@@ -175,7 +209,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "C:\\Users\\MSClark\\Documents\\Hobbyscopes\\Advanced-React\\sick-fits\\frontend\\components\\Meta.js";
+var _jsxFileName = "C:\\Users\\MSClark\\Documents\\Hobbyscopes\\my-sick-fits\\frontend\\components\\Meta.js";
 
 
 
@@ -244,7 +278,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "C:\\Users\\MSClark\\Documents\\Hobbyscopes\\Advanced-React\\sick-fits\\frontend\\components\\Nav.js";
+var _jsxFileName = "C:\\Users\\MSClark\\Documents\\Hobbyscopes\\my-sick-fits\\frontend\\components\\Nav.js";
 
 
 
@@ -303,7 +337,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Meta__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Meta */ "./components/Meta.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "C:\\Users\\MSClark\\Documents\\Hobbyscopes\\Advanced-React\\sick-fits\\frontend\\components\\Page.js";
+var _jsxFileName = "C:\\Users\\MSClark\\Documents\\Hobbyscopes\\my-sick-fits\\frontend\\components\\Page.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -323,16 +357,54 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    @font-face {\n        font-family: 'radnika_next';\n        src: url('static\radnikanext-medium-webfont.woff2') format('woff2');\n        font-weight: normal;\n        font-style: normal;\n    }\n    html{\n        box-sizing: border-box;\n        font-size: 10px; /* set font size to 10 so you have a baseline from which all other font calculations can be made off*/\n    }\n    *, *:before, *:after{\n        box-sizing: inherit;\n    }\n    body{\n        padding: 0;\n        margin: 0;\n        font-size: 1.5rem;\n        line-height: 2;\n        font-family: 'radnika_next';\n    }\n"], ["\n    @font-face {\n        font-family: 'radnika_next';\n        src: url('static\\radnikanext-medium-webfont.woff2') format('woff2');\n        font-weight: normal;\n        font-style: normal;\n    }\n    html{\n        box-sizing: border-box;\n        font-size: 10px; /* set font size to 10 so you have a baseline from which all other font calculations can be made off*/\n    }\n    *, *:before, *:after{\n        box-sizing: inherit;\n    }\n    body{\n        padding: 0;\n        margin: 0;\n        font-size: 1.5rem;\n        line-height: 2;\n        font-family: 'radnika_next';\n    }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
-var MyButton = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.button.withConfig({
-  displayName: "Page__MyButton",
+
+/* 
+    Theme provider  allows usage of react context api so you can reference things multiple levels down in components and not have to pass things down many times 
+    Inject global brings in that react context api
+*/
+
+var theme = {
+  red: '#FF0000',
+  black: '#393939',
+  grey: '#3A3A3A',
+  lightgrey: '#E1E1E1',
+  offWhite: '#EDEDED',
+  maxWidth: '1000px',
+  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
+};
+var StyledPage = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+  displayName: "Page__StyledPage",
   componentId: "sc-4u7a64-0"
-})(["background:red;font-size:", ";.stuff{font:100px;}"], function (props) {
-  return props.huge ? '100px' : '50px';
-}); // ternary if huge exists make it 100px otherwise 50px
+})(["background:white;color:", ";"], function (props) {
+  return props.theme.black;
+});
+var Inner = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+  displayName: "Page__Inner",
+  componentId: "sc-4u7a64-1"
+})(["max-width:", ";margin:0 auto;padding:2rem;background:", ";"], function (props) {
+  return props.theme.maxWidth;
+}, function (props) {
+  return props.theme.red;
+}); // props.theme will grab the max width from the theme object
+//inject global refers to global css
+// set everything to border box and have pseudoelements inherit that so you can be sure of default styles
+
+Object(styled_components__WEBPACK_IMPORTED_MODULE_3__["injectGlobal"])(_templateObject());
 
 var Page =
 /*#__PURE__*/
@@ -348,32 +420,38 @@ function (_Component) {
   _createClass(Page, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_3__["ThemeProvider"], {
+        theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 60
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 61
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_2__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 62
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 63
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MyButton, {
-        huge: "100",
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 64
         },
         __self: this
-      }, "CLick me "), " ", this.props.children);
+      }, this.props.children)));
     }
   }]);
 
@@ -398,7 +476,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/app */ "next/app");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_Page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Page */ "./components/Page.js");
-var _jsxFileName = "C:\\Users\\MSClark\\Documents\\Hobbyscopes\\Advanced-React\\sick-fits\\frontend\\pages\\_app.js";
+var _jsxFileName = "C:\\Users\\MSClark\\Documents\\Hobbyscopes\\my-sick-fits\\frontend\\pages\\_app.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }

@@ -1,27 +1,70 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Meta from './Meta';
-import styled from 'styled-components';
+import styled, {ThemeProvider, injectGlobal} from 'styled-components';
+/* 
+    Theme provider  allows usage of react context api so you can reference things multiple levels down in components and not have to pass things down many times 
+    Inject global brings in that react context api
+*/
+const theme = {
+    red: '#FF0000',
+    black: '#393939',
+    grey: '#3A3A3A',
+    lightgrey: '#E1E1E1',
+    offWhite: '#EDEDED',
+    maxWidth: '1000px',
+    bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
+}
 
-const MyButton = styled.button`
-    background: red;
-    font-size: ${props => (props.huge ? '100px' : '50px')}; 
-    .stuff{
-        font: 100px;
+const StyledPage = styled.div`
+    background: white;
+    color: ${props => props.theme.black};
+`;
+
+const Inner = styled.div`
+    max-width: ${props => props.theme.maxWidth}; 
+    margin: 0 auto;
+    padding: 2rem;
+    background: ${props => props.theme.red};
+`; // props.theme will grab the max width from the theme object
+
+//inject global refers to global css
+// set everything to border box and have pseudoelements inherit that so you can be sure of default styles
+injectGlobal`
+    @font-face {
+        font-family: 'radnika_next';
+        src: url('static\radnikanext-medium-webfont.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
     }
-`; // ternary if huge exists make it 100px otherwise 50px
+    html{
+        box-sizing: border-box;
+        font-size: 10px; /* set font size to 10 so you have a baseline from which all other font calculations can be made off*/
+    }
+    *, *:before, *:after{
+        box-sizing: inherit;
+    }
+    body{
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        line-height: 2;
+        font-family: 'radnika_next';
+    }
+`;
+
 
 class Page extends Component {
     render() {
         return (
-            <div>
-                <Meta />
-                <Header />
-                <MyButton huge="100">CLick me </MyButton> {/* huge is an attribute accessed via MyButton.props */}
-                {this.props.children}
-            </div>
+            <ThemeProvider theme={theme}>
+                <StyledPage>
+                    <Meta />
+                    <Header />
+                    <Inner>{this.props.children}</Inner>
+                </StyledPage>
+            </ThemeProvider>
         );
     }
 }
-
 export default Page;
