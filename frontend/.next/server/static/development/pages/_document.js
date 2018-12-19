@@ -210,6 +210,7 @@ function (_Document) {
 
   return MyDocument;
 }(next_document__WEBPACK_IMPORTED_MODULE_1___default.a); // from next.js examples on github
+// document will walk component tree and collect styles needed to prerender from server to client so everything is rendered on a refresh and the client doesnt see unstyled components for a split second
 
 
 
