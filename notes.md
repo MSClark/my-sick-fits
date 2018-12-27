@@ -11,16 +11,16 @@ Next js
 NProgress
     css is linked in meta component 
 # Intro and setup
-##1 editor setup
-##2 tech stack
-##3 intro to next.js, tooling and routing
- ##4 custom _app.js
+## 1 editor setup
+## 2 tech stack
+## 3 intro to next.js, tooling and routing
+ ## 4 custom _app.js
 # CSS and Styled Components
- ##5 intro to styled components
- ##6 themes and layout using styled components
- ##7 global styling and typography with styled components
- ##8 visualizing route changes
- ##9 fixing styled component flicker on server render
+ ## 5 intro to styled components
+ ## 6 themes and layout using styled components
+ ## 7 global styling and typography with styled components
+ ## 8 visualizing route changes
+ ## 9 fixing styled component flicker on server render
     What I learned: Styled components is rendered on the server so the client doesnt get them until the "second" pass of react client rendering where it checks to see if anything needs to be updated.
     What I did: added _document.js to preload css
 # Server Side GraphQL    
