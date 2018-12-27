@@ -11,9 +11,9 @@ Next js
 NProgress
     css is linked in meta component 
 # Intro and setup
- ##1 editor setup
- ##2 tech stack
- ##3 intro to next.js, tooling and routing
+##1 editor setup
+##2 tech stack
+##3 intro to next.js, tooling and routing
  ##4 custom _app.js
 # CSS and Styled Components
  ##5 intro to styled components
