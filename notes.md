@@ -10,23 +10,55 @@
 
    CSS is linked in meta component
 
-## General Backend Notes
-
 ### Next js
 
-   Routing
+* Routing, server side rendering, tooling, webpack etc.
+
+### Apollo Client
+
+* Replaces need for redux
+* acts as layer between react and graphql
+* handles caching and local state
+
+## General Backend Notes
+
+### GraphQL Yoga
+
+* acts as our express graphql server
+* handles server side logic, cc charging, email, permission checking
+
+### Prisma
+
+* Provides CRUD api's, acts as an abstraction so you dont have to interect with mysql directly
 
 ## Intro and setup
 
 ### 1. editor setup
 
-   *code ./frontend to open frontend
-   *cmd+, opens settings in vscode
-   *wesbos.com/uses for what he uses
+* code ./frontend to open frontend
+* `ctrl` + `,` opens settings in vscode
+* wesbos.com/uses for what he uses
 
 ### 2. tech stack
 
+Filled out technology descriptions above
+
 ### 3. intro to next.js, tooling and routing
+
+* package.json has next.js's babel config
+* getInitialProps waits for page to resolve on server before sending to client
+* next.js
+   * npm run __dev__, dev is an alias that will run the cmd `next -p 7777`
+   * next.js will handle importing react
+   * next.js has link tag functionality for push state allowing caching
+   ex.
+   ```
+   import Link from 'next/link';
+   ...
+   <Link href="/sell">
+      <a>Sell!</a>
+   <Link>
+   ```
 
 ### 4. custom _app.js
 
