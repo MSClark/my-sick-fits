@@ -48,9 +48,9 @@ Filled out technology descriptions above
 * package.json has next.js's babel config
 * getInitialProps waits for page to resolve on server before sending to client
 * next.js
-   * npm run __dev__, dev is an alias that will run the cmd `next -p 7777`
-   * next.js will handle importing react
-   * next.js has link tag functionality for push state allowing caching
+  * npm run __dev__, dev is an alias that will run the cmd `next -p 7777`
+  * next.js will handle importing react
+  * next.js has link tag functionality for push state allowing caching
    ex.
    ```
    import Link from 'next/link';
@@ -61,6 +61,16 @@ Filled out technology descriptions above
    ```
 
 ### 4. custom _app.js
+
+* next.js wraps whole appilcation in "app component" - _app.js
+  * allows for keeping state when changing pages
+
+Files:
+* _app.js
+* Page.js
+* Header.js
+* Meta.js
+  * next.js handles html head through some trickery so we just use `import Head from 'next/head';`
 
 ## CSS and Styled Components
 
@@ -116,3 +126,7 @@ Filled out technology descriptions above
 ### 22. pagination
 
 ### 23. pagination and cache invalidation
+
+## Side Notes
+
+`git rm -r --cached ./path` to remove files/folders from github
