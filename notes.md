@@ -1,20 +1,28 @@
-## Frontend Notes
+# Advanced React Notes
 
-## Backend Notes
+## General Frontend Notes
 
-Styled components
-    are stored on the server because we do server side rendering
+### Styled components
 
-Next js
+   Stored on the server because we do server side rendering
+
+### NProgress
+
+   CSS is linked in meta component
+
+## General Backend Notes
+
+### Next js
 
    Routing
-
-NProgress
-    css is linked in meta component
 
 ## Intro and setup
 
 ### 1. editor setup
+
+   *code ./frontend to open frontend
+   *cmd+, opens settings in vscode
+   *wesbos.com/uses for what he uses
 
 ### 2. tech stack
 
@@ -50,10 +58,10 @@ NProgress
 
 ### 13. first query and mutation
 
-    >type Query{
-    >   dogs: [Dog]!
-    >}
-    __!__ Means if there cant be any null items in the array
+   `type Query{
+      dogs: [Dog]!
+   }`
+! Means if there cant be any null items in the array
 
 ### 14. items creation and yoga flow
 
