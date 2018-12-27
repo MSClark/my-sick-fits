@@ -1,4 +1,4 @@
-# Advanced React Notes
+# Notes
 
 ## General Frontend Notes
 
