@@ -76,6 +76,22 @@ Files:
 
 ### 5. intro to styled components
 
+Styled components allows for component styling in js
+ex.
+```
+const MyButton = styled.button`
+   background: red;
+   font-size: ${props => (props.huge ? '100px' : "50px")}
+   .a {                 /*child 'a' element*/
+      font: 100px;
+   }
+`;
+...
+<MyButton huge="100"> //huge is a prop that can pass in the value of 100 to css above
+   <a>test</a>
+</MyButton>
+```
+
 ### 6. themes and layout using styled components
 
 ### 7. global styling and typography with styled components
