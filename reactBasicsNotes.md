@@ -116,6 +116,7 @@ const App = () => <h1>Hello world!</h1>
     ```
 
 ## TODO App
+
 ### Styles used
 ```css
 body {
@@ -166,3 +167,33 @@ input[type=checkbox]:focus {
     outline: 0;
 }
 ```
+
+## Props
+
+### Contact card example
+```javascript
+function ContactCard(props) {
+    return (
+        <div className="contact-card">
+            <img src={props.imgUrl}/>
+            <h3>{props.name}</h3>
+            <p>Phone: {props.phone}</p>
+            <p>Email: {props.email}</p>
+        </div>
+    )
+}
+
+export default ContactCard
+```
+```javascript
+<ContactCard 
+    name="Mr. Whiskerson" 
+    imgUrl="http://placekitten.com/300/200" 
+    phone="(212) 555-1234" 
+    email="mr.whiskaz@catnap.meow"
+/>
+```
+* can also pass along object with props when you have many props `<ContactCard 
+                contact={{name: "Mr. Whiskerson", imgUrl: "http://placekitten.com/300/200", phone: "(212) 555-1234", email: "mr.whiskaz@catnap.meow"}}
+            />`
+    * double brackets to get into js land and to specify that were working with an object
