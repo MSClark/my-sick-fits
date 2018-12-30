@@ -1,6 +1,6 @@
 # Notes on react basics refresher course
 
- freecodecamp [https://www.youtube.com/watch?v=DLX62G4lc44]
+ [Scrimba](https://scrimba.com/playlist/p7P5Hd)
 
 ## virtual DOM
 
@@ -193,7 +193,7 @@ export default ContactCard
     email="mr.whiskaz@catnap.meow"
 />
 ```
-* can also pass along object when you have many props 
+Can also pass along object when you have many props 
 ``` javascript
 <ContactCard 
     contact={{name: "Mr. Whiskerson", imgUrl: "http://placekitten.com/300/200", phone: "(212) 555-1234", email: "mr.whiskaz@catnap.meow"}}
@@ -205,7 +205,7 @@ export default ContactCard
 Dont render prop if it isnt passed in or doesnt exist `<h3 style={{display: props.question ? "block" : "none"}}>Question: {props.question}</h3>` another way of doing so - `<h3 style={{display: !props.question && "none"}}>Question: {props.question}</h3>`
 
 ## Mapping Components
-
+Reminder - Array.prototype.map() returns a new array so you want to save it to a new var in most cases
 ### ES6 Reminder - arrow function examples
 
 Empty function for our mapping
@@ -226,5 +226,16 @@ function App() {
 ```
 Simplified 
 ```javascript 
-    jokesData.map(joke =>  <Joke question={joke.question} punchLine={joke.punchLine} />)
+    jokesData.map(joke => <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine} />)
 ```
+Sidenote - need key prop for repetitive objects such as those in an array 
+
+Useful higher order functions to refamiliarize with
+[Filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+[Sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+[Reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+[Every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
+[Some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+[Find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+[FindIndex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findindex)
