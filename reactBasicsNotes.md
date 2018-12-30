@@ -239,3 +239,30 @@ Useful higher order functions to refamiliarize with
 [Some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 [Find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 [FindIndex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findindex)
+
+### Product Example using props and map from object data
+
+App.js Snippet
+```javascript
+function App() {
+    const productComponents = productsData.map(item => <Product key={item.id} product={item}/>)
+    // item is arbitrary name given to object being passed in, its a param
+    return (
+        <div>
+            {productComponents}
+        </div>
+    )
+}
+```
+Product.js snippet
+```javascript
+function Product(props) {
+    return (
+        <div>
+            <h2>{props.product.name}</h2>
+            <p>{props.product.price.toLocaleString("en-US", { style: "currency", currency: "USD" })} - {props.product.description}</p>
+            {/*toLocaleString formats currency in this case*/}
+        </div>
+    )
+}
+```
