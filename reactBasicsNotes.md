@@ -193,7 +193,38 @@ export default ContactCard
     email="mr.whiskaz@catnap.meow"
 />
 ```
-* can also pass along object with props when you have many props `<ContactCard 
-                contact={{name: "Mr. Whiskerson", imgUrl: "http://placekitten.com/300/200", phone: "(212) 555-1234", email: "mr.whiskaz@catnap.meow"}}
-            />`
-    * double brackets to get into js land and to specify that were working with an object
+* can also pass along object when you have many props 
+``` javascript
+<ContactCard 
+    contact={{name: "Mr. Whiskerson", imgUrl: "http://placekitten.com/300/200", phone: "(212) 555-1234", email: "mr.whiskaz@catnap.meow"}}
+    // double brackets to get into js land and to specify that were working with an object
+    // referenced with {props.contact.name}
+/>
+```  
+
+Dont render prop if it isnt passed in or doesnt exist `<h3 style={{display: props.question ? "block" : "none"}}>Question: {props.question}</h3>` another way of doing so - `<h3 style={{display: !props.question && "none"}}>Question: {props.question}</h3>`
+
+## Mapping Components
+
+### ES6 Reminder - arrow function examples
+
+Empty function for our mapping
+```javascript
+function App() {
+    jokesData.map(() => {
+        
+    })
+```
+Fleshed out
+```javascript
+function App() {
+    jokesData.map(joke => {
+        return (
+            <Joke question={joke.question} punchLine={joke.punchLine} />
+        )
+    })
+```
+Simplified 
+```javascript 
+    jokesData.map(joke =>  <Joke question={joke.question} punchLine={joke.punchLine} />)
+```
