@@ -10,7 +10,7 @@ react keeps exact copy of dom and checks for changes and updates only nodes that
 
 * elements must be nested or singleton
 * importing react allows for the use of jsx
-* to interpret js inside jsx use curly braces ex. `<h1>Hello {firstName + " " + lastName}!</h1>` or in ES6 template literals `<h1>Hello {`${firstName} ${lastName}`}!</h1>`
+* to interpret js inside jsx use curly braces ex. `<h1>Hello {firstName + " " + lastName}!</h1>` or in ES6 template literals ```<h1>Hello {`${firstName} ${lastName}`}!</h1>```
 
 ## Uber basic boiletplate
 
