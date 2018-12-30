@@ -69,7 +69,20 @@ const App = () => <h1>Hello world!</h1>
     * ex. `<h1 style={{color: "#FF8C00"}}>Good {timeOfDay}!</h1>` double braces - first goes into js land, second makes it a js object
     * cant use dashes in attribute sections, so you have to camelcase it instead and itll still work
         * instead of `background-color` use `backgroundColor`
-    * cant do pseudoelements inline because js doesnt like the colon
+    * best to put styles in their own object and reference them ex.
+    ```javascript
+    const styles = {
+    color: "#FF8C00",
+    backgroundColor: "#FF2D00",
+    fontSize: 24
+  }
+  
+  return (
+    <h1 style={styles}>Good {timeOfDay}!</h1>
+  )
+    ```
+    
+    * can't do pseudoelements inline because js doesnt like the colon
     * can be useful if you want js to determine styles ex. 
     ```javascript
     import React from "react"
@@ -100,18 +113,6 @@ const App = () => <h1>Hello world!</h1>
     }
 
     ReactDOM.render(<App />, document.getElementById("root"))
-    ```
-    * best to put styles in their own object and reference them ex.
-    ```javascript
-    const styles = {
-    color: "#FF8C00",
-    backgroundColor: "#FF2D00",
-    fontSize: 24
-  }
-  
-  return (
-    <h1 style={styles}>Good {timeOfDay}!</h1>
-  )
     ```
 
 ## TODO App
