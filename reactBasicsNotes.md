@@ -1,6 +1,6 @@
 # Notes on react basics refresher course
 
-https://www.youtube.com/watch?v=DLX62G4lc44 [freecodecamp]
+ freecodecamp [https://www.youtube.com/watch?v=DLX62G4lc44]
 
 ## virtual DOM
 
@@ -9,12 +9,13 @@ react keeps exact copy of dom and checks for changes and updates only nodes that
 ## JSX notes on things I may not remember
 
 * elements must be nested or singleton
+* importing react allows for the use of jsx
 
 ## Uber basic boiletplate
 
 ``` javascript
-import react from "react";
-import reactDOM from "react-DOM";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 let stuff = <ul>
   <li>a</li>
@@ -27,6 +28,9 @@ reactDOM.render(stuff, document.getElementById("root"));
 ## Functional Components
 
 ```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 function MyApp(){
     return (
         <ul>
@@ -38,3 +42,11 @@ function MyApp(){
 }
 reactDOM.render(<MyApp />, document.getElementById("root"));
 ```
+
+## Methodology
+
+* Import/Exporting Components
+    * Only have one component per js file and put them all in a "component" folder
+    * Name same as component name
+    * Export - `export default MyInfo`
+    * Import - `import MyInfo from "./components/Myinfo";`
