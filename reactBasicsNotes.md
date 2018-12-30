@@ -10,7 +10,7 @@ react keeps exact copy of dom and checks for changes and updates only nodes that
 
 * elements must be nested or singleton
 * importing react allows for the use of jsx
-* to interpret js inside jsx use curly braces ex. `<h1>Hello {firstName + " " + lastName}!</h1>` or in ES6 `<h1>Hello {`${firstName} ${lastName}`}!</h1>`
+* to interpret js inside jsx use curly braces ex. `<h1>Hello {firstName + " " + lastName}!</h1>` or in ES6 template literals `<h1>Hello {`${firstName} ${lastName}`}!</h1>`
 
 ## Uber basic boiletplate
 
@@ -62,8 +62,57 @@ const App = () => <h1>Hello world!</h1>
 
 ## Styling
 
-* similar to normal css referncing just need to use __className__ instead of class ex. `<header className="navbar">This is the header</header>`
-* refer to styled components notes for additionals styling
+* class
+    * similar to normal css referncing just need to use __className__ instead of class ex. `<header className="navbar">This is the header</header>`
+    * refer to styled components notes for additionals styling
+* inline
+    * ex. `<h1 style={{color: "#FF8C00"}}>Good {timeOfDay}!</h1>` double braces - first goes into js land, second makes it a js object
+    * cant use dashes in attribute sections, so you have to camelcase it instead and itll still work
+        * instead of `background-color` use `backgroundColor`
+    * cant do pseudoelements inline because js doesnt like the colon
+    * can be useful if you want js to determine styles ex. 
+    ```javascript
+    import React from "react"
+    import ReactDOM from "react-dom"
+
+    function App() {
+    const date = new Date()
+    const hours = date.getHours()
+    let timeOfDay
+    const styles = {
+        fontSize: 30
+    }
+    
+    if (hours < 12) {
+        timeOfDay = "morning"
+        styles.color = "#04756F"
+    } else if (hours >= 12 && hours < 17) {
+        timeOfDay = "afternoon"
+        styles.color = "#2E0927"
+    } else {
+        timeOfDay = "night"
+        styles.color = "#D90000"
+    }
+    
+    return (
+        <h1 style={styles}>Good {timeOfDay}!</h1>
+    )
+    }
+
+    ReactDOM.render(<App />, document.getElementById("root"))
+    ```
+    * best to put styles in their own object and reference them ex.
+    ```javascript
+    const styles = {
+    color: "#FF8C00",
+    backgroundColor: "#FF2D00",
+    fontSize: 24
+  }
+  
+  return (
+    <h1 style={styles}>Good {timeOfDay}!</h1>
+  )
+    ```
 
 ## TODO App
 
