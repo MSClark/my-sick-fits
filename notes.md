@@ -52,7 +52,7 @@ Filled out technology descriptions above
   * next.js will handle importing react
   * next.js has link tag functionality for push state allowing caching
    ex.
-   ```
+   ```javascript
    import Link from 'next/link';
    ...
    <Link href="/sell">
