@@ -297,3 +297,22 @@ function TodoItem(props) {
 
 ## Class based components
 
+* props are slightly different where you need to use `{this.props.whatever}` in class based components vs `{props.whatever}` in functional
+```javascript
+class App extends React.Component {
+    
+    myMethod(){
+        // logic and styling
+    }
+
+    render() {
+        // display logic and styling goes here or in class method
+        this.myMethod();
+        return (
+            <div>
+                <h1>{this.props.whatever}</h1>
+            </div>
+        )
+    }
+}
+```
