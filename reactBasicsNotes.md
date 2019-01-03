@@ -170,6 +170,8 @@ input[type=checkbox]:focus {
 
 ## Props
 
+* immutable
+
 ### Contact card example
 ```javascript
 function ContactCard(props) {
@@ -316,3 +318,88 @@ class App extends React.Component {
     }
 }
 ```
+
+## State
+
+* if you want a component to keep track of its state it needs to be a class based component
+* every component that keeps track of state needs a constructor method
+* often pass state through props to child components
+* changing state in parent component will update child components props
+basic ex. 
+```javascript
+class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            answer: "Yes"
+        }
+    }
+    
+    render() {
+        return (
+            <div>
+                <h1>Is state important to know? {this.state.answer}</h1>
+                <ChildComponent answer={this.state.answer}/>
+            </div>
+        )
+    }
+}
+```
+Another example
+```javascript
+class App extends Component {
+    constructor(){
+        super();
+        this.state = {
+            isLoggedIn: false
+        }
+    }
+    render(){
+        
+        return (
+        <div>
+            <h1>You are currently logged {this.state.isLoggedIn ? "in" : "out"}</h1>
+        </div>
+        )   
+    }
+}
+```
+
+### TODO App pt. 4
+Changing app component to class based stateful component and loading todos data into state
+```javascript
+import React from "react"
+import TodoItem from "./TodoItem"
+import todosData from "./todosData"
+
+class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            todos: todosData
+        }
+    }
+    
+    render() {
+        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item}/>)
+        
+        return (
+            <div className="todo-list">
+                {todoItems}
+            </div>
+        )    
+    }
+}
+
+export default App
+```
+
+## Event handling
+
+[React Events](https://reactjs.org/docs/events.html#supported-events)
+Anonymous function event example `<button onClick={() => console.log("I was clicked!")}>Click me</button>`
+Regular function event example `<button onClick={handleClick}>Click me</button>` no parenthesis needed
+MouseOver event example `<img onMouseOver={() => console.log("Hovered!")} src="https://www.fillmurray.com/200/100"/>`
+
+### TODO App pt. 5
+
