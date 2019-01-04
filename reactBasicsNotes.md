@@ -319,7 +319,7 @@ class App extends React.Component {
 }
 ```
 
-## State
+## Intro to State
 
 * if you want a component to keep track of its state it needs to be a class based component
 * every component that keeps track of state needs a constructor method
@@ -401,5 +401,32 @@ Anonymous function event example `<button onClick={() => console.log("I was clic
 Regular function event example `<button onClick={handleClick}>Click me</button>` no parenthesis needed
 MouseOver event example `<img onMouseOver={() => console.log("Hovered!")} src="https://www.fillmurray.com/200/100"/>`
 
-### TODO App pt. 5
+## Changing State
 
+ * when you update state youre making a new state, never changing the original state
+ * anytime you use a method that sets state youll need to bind that method to the class its in within the constructor
+ ex. `this.handleClick = this.handleClick.bind(this)`
+ ```javascript
+ class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            count: 0
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
+    
+    handleClick() {
+        this.setState({ count: 1 })
+    }
+ ```
+ Another way to write handleClick if you need previous state
+ ```javascript
+ handleClick() {
+        this.setState(prevState => {
+            return {
+                count: prevState.count + 1 // not ++ because that would modify prevState
+            }
+        })
+    }
+ ```
