@@ -430,3 +430,75 @@ MouseOver event example `<img onMouseOver={() => console.log("Hovered!")} src="h
         })
     }
  ```
+
+ ## TODO pt 6.
+
+ ex. making the checkboxes change on click and keeping track of that state 
+ App.js 
+ ```javascript
+ import React from "react"
+import TodoItem from "./TodoItem"
+import todosData from "./todosData"
+
+class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            todos: todosData
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
+    
+    handleChange(id) { // passed in id of todo when its called 
+        this.setState(prevState => { // using previous state because we never modify state
+            const updatedTodos = prevState.todos.map(todo => { // map makes copy of todos state
+                if (todo.id === id) { // trying to match current iteration's id with passed in id 
+                    todo.completed = !todo.completed //flip bool
+                }
+                return todo // return this to do into the current iteration index
+            })
+            return {
+                todos: updatedTodos // return the new todos array obj that contains the new state of todos
+            }
+        })
+    }
+    
+    render() {
+        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
+        // added handle change prop to get passed down state
+        return (
+            <div className="todo-list">
+                {todoItems}
+            </div>
+        )    
+    }
+}
+
+export default App
+ ```
+ TodoItem.js
+ ```javascript
+ import React from "react"
+
+function TodoItem(props) {
+    return (
+        <div className="todo-item">
+            <input 
+                type="checkbox" 
+                checked={props.item.completed} 
+                onChange={() => props.handleChange(props.item.id)} // need to pass id to handleChange function which is why its not just {props.handleChange}
+            />
+            <p>{props.item.text}</p>
+        </div>
+    )
+}
+
+export default TodoItem
+ ```
+
+ ## Lifecycle Methods
+ 
+ [Lifecycle methods explanation before version 16.3](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
+ [Lifecycle method changes](https://reactjs.org/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes)
+ [Visualization of lifecycle methods](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+ [Lifecycle cheatsheet](https://gist.github.com/bvaughn/923dffb2cd9504ee440791fade8db5f9)
