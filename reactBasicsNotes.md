@@ -574,7 +574,7 @@ class App extends React.Component {
     handleClick(){
         console.log(this.state.isLoggedIn)
         this.setState({
-            state: !state.isLoggedIn
+            isLoggedIn: !state.isLoggedIn
         })
     }
 */    
@@ -621,3 +621,41 @@ function TodoItem(props) {
 [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)  
 [Star wars api](https://swapi.co/)  
 [Promises refresher](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261)  
+
+API Example
+```javascript
+class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            loading: false,
+            character: {}
+        }
+    }
+    
+    componentDidMount() {
+        this.setState({loading: true})
+        fetch("https://swapi.co/api/people/1")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    loading: false,
+                    character: data
+                })
+            })
+    }
+    
+    render() {
+        const text = this.state.loading ? "loading..." : this.state.character.name
+        return (
+            <div>
+                <p>{text}</p>
+            </div>
+        )
+    }
+}
+```
+
+## Forms
+
+[React documentation on forms](https://reactjs.org/docs/forms.html)  
