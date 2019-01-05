@@ -502,3 +502,52 @@ export default TodoItem
  [Lifecycle method changes](https://reactjs.org/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes)
  [Visualization of lifecycle methods](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
  [Lifecycle cheatsheet](https://gist.github.com/bvaughn/923dffb2cd9504ee440791fade8db5f9)
+* new 1.7 methods `getDerivedStateFromProps` `getSnapshotBeforeUpdate`
+ ## Conditional Rendering
+
+ You can pass state down to a component through props that holds the loading state and then action off that
+ ex. 
+ ```javascript
+ //App.js 
+ componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                isLoading: false
+            })
+        }, 1500)
+    }
+...
+...
+<Conditional isLoading={this.state.isLoading}/>
+
+//Conditional.js
+ function Conditional(props) {
+    if(props.isLoading === true) {
+        return (
+            <h1>Loading...</h1>
+        )
+    } 
+    return (
+        <h1>Some cool stuff about conditional rendering</h1>
+    )
+}
+ ```
+
+Alternative rendering logic
+```javascript
+<div>
+    {props.isLoading ? <h1>Loading...</h1> : <h1>Some cool stuff about conditional rendering</h1>}
+</div>
+```
+
+### Sidenote on && usage in ternary operators
+
+```javascript
+if (online){
+  getData();
+}
+```
+is the same as 
+`online && getData();`
+this allows you to simplify conditionals - you can check the truthyness of the first statement "online" and if that comes back false the && is automatically going to evaluate to false
+> Short circuiting means that in JavaScript when we are evaluating an AND expression (&&), if the first operand is false, JavaScript will short-circuit and not even look at the second operand.
