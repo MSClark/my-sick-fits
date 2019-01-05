@@ -232,7 +232,7 @@ Simplified
 ```
 Sidenote - need key prop for repetitive objects such as those in an array 
 
-Useful higher order functions to refamiliarize with
+Useful higher order functions to refamiliarize with -  
 [Filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)  
 [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)  
 [Sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)  
@@ -551,3 +551,73 @@ is the same as
 `online && getData();`
 this allows you to simplify conditionals - you can check the truthyness of the first statement "online" and if that comes back false the && is automatically going to evaluate to false
 > Short circuiting means that in JavaScript when we are evaluating an AND expression (&&), if the first operand is false, JavaScript will short-circuit and not even look at the second operand.
+
+### Conditional Rendering Practice
+```javascript
+class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            isLoggedIn: false
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
+    
+    handleClick() {
+        this.setState(prevState => { // need previous state
+            return {
+                isLoggedIn: !prevState.isLoggedIn
+            }
+        })
+    }
+/* this is my version and is more concise rather than using a lambda function
+    handleClick(){
+        console.log(this.state.isLoggedIn)
+        this.setState({
+            state: !state.isLoggedIn
+        })
+    }
+*/    
+    render() {   
+        let buttonText = this.state.isLoggedIn ? "LOG OUT" : "LOG IN"
+        return (
+            <div>
+                <button onClick={this.handleClick}>{buttonText}</button>
+            </div>
+        )
+    }
+}
+
+export default App
+```
+
+## TODO pt. 7 some styling
+
+__Reminder__: you cant use inline styles with names such as text-decoration, it has to be textDecoration. The key of the css rule cant have dashes, the value can
+Some conditional rendering using a ternary operator in the paragraph tag
+```javascript
+function TodoItem(props) {
+    const completedStyle = {
+        fontStyle: "italic",
+        color: "#cdcdcd",
+        textDecoration: "line-through"
+    }
+    
+    return (
+        <div className="todo-item">
+            <input 
+                type="checkbox" 
+                checked={props.item.completed} 
+                onChange={() => props.handleChange(props.item.id)}
+            />
+            <p style={props.item.completed ? completedStyle: null}>{props.item.text}</p>
+        </div>
+    )
+}
+```
+
+## Fetching Data From an API
+
+[Fetch](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)  
+[Star wars api](https://swapi.co/)  
+[Promises refresher](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261)  
