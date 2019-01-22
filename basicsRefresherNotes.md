@@ -894,3 +894,16 @@ class App extends Component {
 
 export default App
 ```
+## Component Architecture
+
+[Blog on smart and dumb components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)  
+We want to seperate logical and presentational parts of a component. i.e. its best practice to have a component that handles the presentational logic and rendering and another as a container that handles state and business logic. So we stripped out everything in the render method and put it in its own functional component and passed anything we needed through props. 
+```javascript
+render() {
+        <FormComponent
+            handleChange={this.handleChange} //pass down handle change function
+            {...this.state} // use spread operator to pass down all state object fields
+        />
+    }
+```
+you can also just name the passeed state obj as something else, which can be a little easier to follow at times ex. `data={this.state}`
