@@ -47,3 +47,10 @@ System.out.println("5 + 2 = "+4+3); // 43
 System.out.println("5 + 2 = "+(4+3)); // 7
 // when printing if theres a string first java will try to concat, the parenthesis puts the 4+3 in a higher order of operations 
 ```
+
+`(String[] args)` is an array of strings as comamnd line arguments that are passed in
+
+All 3 parts of a for loop args are optional
+
+`a=b=c=d=20` chained assignment, done right to left
+`+=` compound assignment operator
