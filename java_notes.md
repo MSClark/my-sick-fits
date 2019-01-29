@@ -54,3 +54,33 @@ All 3 parts of a for loop args are optional
 
 `a=b=c=d=20` chained assignment, done right to left
 `+=` compound assignment operator
+
+```java
+/*
+2468
+24
+first for loop is using an array as the iterator because multidimensional arrays are an array of arrays
+*/
+int[][] x = new int[2][4];
+		x[0]= new int[]{2,4,6,8};
+		x[1]= new int[]{2,4};
+		for(int[] x1: x)
+		{
+			for(int x2 :x1)
+			{
+				System.out.print(x2+" ");
+			}
+			System.out.println();
+		}
+```
+
+annonamous arrays are arrays passed into methods without a reference variable
+```java
+bark(new int[]={1,2,3,4});
+
+bark(int[] nums){
+	//code 
+}
+```
+
+experessions are allowed in switch statements but not cases, cases must be constants
