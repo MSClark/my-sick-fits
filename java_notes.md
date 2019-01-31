@@ -9,6 +9,8 @@ The following are valid implicit conversions in java byte-->short-->int-->long--
 class variable is specific to a class and is static
 instance variable is specific to an instance of a class 
 
+double and long not allowed in switch statements
+
 cant manipulate instance variables in a static context such as a method with a static signature
 
 default for char is a space
@@ -84,3 +86,9 @@ bark(int[] nums){
 ```
 
 experessions are allowed in switch statements but not cases, cases must be constants
+
+for each loop index value is referenced by `i` not `x[i]`
+
+The only allowed types for switch argument type are: byte,short,int,char and corresponding wrapper classes,String and enum.
+
+The only overloaded operator in java is + operator. Sometimes it acts as arithmetic addition operator and sometimes it acts as string concatenation operator.If both arguments are number type then it acts as arithmetic addition operator and if atleast one argument is string type then it acts as concatenation operator. Parenthesis will get highest priority in operator precedence. (4) simply treated as 4 only.
