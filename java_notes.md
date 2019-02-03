@@ -92,3 +92,13 @@ for each loop index value is referenced by `i` not `x[i]`
 The only allowed types for switch argument type are: byte,short,int,char and corresponding wrapper classes,String and enum.
 
 The only overloaded operator in java is + operator. Sometimes it acts as arithmetic addition operator and sometimes it acts as string concatenation operator.If both arguments are number type then it acts as arithmetic addition operator and if atleast one argument is string type then it acts as concatenation operator. Parenthesis will get highest priority in operator precedence. (4) simply treated as 4 only.
+
+you can generate javadocs by doing /** above a method
+psvm + tab will make main method in intellij
+ctrl+alt+o will get rid of unused imports
+ctrl+alt+l formats code
+
+star imports on packages include all classes in that package, but NOT its sub-packages
+
+when importing packages youre specifying the classes you want, the package name it just there to tell you what package the class is in, so if you import a pakage with no class name or .* you will get an error
+
