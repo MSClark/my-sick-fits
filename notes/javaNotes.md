@@ -158,3 +158,16 @@ star imports on packages include all classes in that package, but NOT its sub-pa
 
 when importing packages youre specifying the classes you want, the package name it just there to tell you what package the class is in, so if you import a pakage with no class name or .* you will get an error
 
+super() and this() should be only in first line of constructor,otherwise we will get error.
+
+Whenever we are creating child class object then both parent class and child class constructors will be executed,but first parent class constructor followed by child class constructor.
+
+when implementing an interface you need to implement all interface methods, if you dont you have to declre the class implementing the interface as abstract
+
+you cant create an object from an abstract class
+
+default is acces modified that has scope of same package
+
+only modifier you can put on a local var is final
+
+package statements have to go before import statements
