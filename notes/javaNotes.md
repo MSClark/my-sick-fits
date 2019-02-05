@@ -171,3 +171,25 @@ default is acces modified that has scope of same package
 only modifier you can put on a local var is final
 
 package statements have to go before import statements
+
+ If a constructor does not explicitly invoke a superclass constructor, the Java compiler automatically inserts a call to the no-argument constructor of the superclass. If the super class does not have a no-argument constructor, you will get a compile-time error.
+
+ super() and this() need to be the first things in a constructor
+
+ cant reduce scope of inherited methods, can expand
+
+ variable without access modifier is assigned default as modifier - package scope
+
+ cant access parent protected vars in child if you make an object as a parent reference such as `A obj = new Test()`
+
+ to modify a static variable set it via class
+ ```java
+Example e1 = new Example();
+Example e2 = new Example();
+
+e1.setNumber(5); //dont do 
+Example.setNumber(5);
+System.out.println(Example.getNumber()); // prints 5, no surprise...
+ ```
+ to remove stuff from string builder use `sb.delete(0, sb.length());`
+ 
