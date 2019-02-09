@@ -211,3 +211,62 @@ All wrapper classes such as string builder have toString overriden
 you can handle exceptions, you cant handle errors
 
 catch blocks need to be ordered from child to parent
+
+use finally block for running code that you always want to execute regardless of whether an error was thrown or not
+
+if you have a return statement in try or catch block itll go to the finally statement
+
+`System.exit(0)` will close the program, shut down the jvm
+
+final:  final is a Modifier is Applicable for Classes, Methods and Variables.  If a Class declared as final then we can't Create Child Class. That is Inheritance is Not Possible for final Classes.  If a Method declared as final then we can't Override that Method in Child Classes.  If a Variable declared as final then we can't Perform Re- Assignment for that Variable. 
+ 
+finally:  finally is a Block Always associated with try-catch to Maintain Clean Up Code.  The Specialty of finally Block is it will be executed Always Irrespective of whether Exception raised OR Not and whether Handled OR Not Handled. 
+ 
+finalize():  finalize() is a Method Always Called by the Garbage Collector Just before Destroying an Object to Perform Clean Up Activities.  Once finalize() Completes Automatically Garbage Collector Destroys that Object. 
+
+only use throws keyword on checked exceptions
+
+Unchecked Exception List
+ArrayIndexOutOfBoundsException
+ClassCastException
+IllegalArgumentException
+IllegalStateException
+NullPointerException
+NumberFormatException
+AssertionError
+ExceptionInInitializerError
+StackOverflowError
+NoClassDefFoundError
+
+Checked Exception List
+Exception
+IOException
+FileNotFoundException
+ParseException
+ClassNotFoundException
+CloneNotSupportedException
+InstantiationException
+InterruptedException
+NoSuchMethodException
+NoSuchFieldException
+
+Summary of Exception Handling Key Words     1) try  To Maintain Risky Code 
+ 
+2) catch   To Maintain Handling Code 
+ 
+3) finally   To Maintain Clean Up Code 
+ 
+4) throw   To Hand-Over Our Created Exception Object to the JVM Manually 
+ 
+5) throws  To Delegate Responsibility of Exception Handling to the Caller Method 
+ 
+Various Possible Compile Time Errors in Exception Handling   1) unreported exception Exception; must be caught or declared to be thrown 
+ 
+2) Exception XXX has already been caught 
+ 
+3) Exception XXX is never thrown in body of corresponding try statement 
+ 
+4) unreachable statement 
+ 
+5) incompatible types       required: java.lang.Throwable       found: Test 
+class 
