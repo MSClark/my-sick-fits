@@ -193,3 +193,21 @@ System.out.println(Example.getNumber()); // prints 5, no surprise...
  ```
  to remove stuff from string builder use `sb.delete(0, sb.length());`
  
+ when removing items from a list that arent actually in the list the method will just return false
+
+ `trim` only trims oustides of string
+
+ when using remove methods on list interface methods passing a primitive such as `remove(2);` will remove from the specified index, if you want to search for the object to remove need to do something like `remove(new Integer(2));`
+
+ when printing a reference variable such as 
+```java
+Test t1 = new Test();
+System.out.println(t1);
+```			
+Java will automatically look for a toString method in the test class and if not itll use Object.class's toString method which is usually className@hashcode
+
+All wrapper classes such as string builder have toString overriden
+
+you can handle exceptions, you cant handle errors
+
+catch blocks need to be ordered from child to parent
