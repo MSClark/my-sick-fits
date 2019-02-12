@@ -270,3 +270,5 @@ Various Possible Compile Time Errors in Exception Handling   1) unreported excep
  
 5) incompatible types       required: java.lang.Throwable       found: Test 
 class 
+
+Strings are immutible so if you set a string to something else a new object will be created and that old string will be send to gc
