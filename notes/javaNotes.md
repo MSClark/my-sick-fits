@@ -272,3 +272,6 @@ Various Possible Compile Time Errors in Exception Handling   1) unreported excep
 class 
 
 Strings are immutible so if you set a string to something else a new object will be created and that old string will be send to gc
+
+Exception class hierarchy is object->throwable->exception->runtimeexception
+
