@@ -275,3 +275,27 @@ Strings are immutible so if you set a string to something else a new object will
 
 Exception class hierarchy is object->throwable->exception->runtimeexception
 
+you can pass in any number of parameters into a method using the varargs operator, much like js's rest operator. numbers is an array of args
+ex. 
+```java
+public static int sumAll(Integer... numbers) {
+    int sum = 0;
+    if (numbers.length > 0 ) {
+        for (Integer n : numbers) {
+            sum += n;
+        }
+    }
+    return sum;
+}
+
+int sumOdd = sumAll(1,3,5,7,9); // 25
+int sumEven = sumAll(2,4,6,8); // 20
+int sumZero = sumAll(); // 0
+```
+
+you can use `System.out.printf("%s stuff %d", string1, integer1)` just like in c
+
+complier automatically injects `super();` into subclass constructors 
+
+Polymorphism example: `Animal tabby = new Cat("Tabby", "salmon", "ball");`
+When you cast like this you can only access methods that are in both classes. If cat has any methods that animal doesnt, if you call it youll get an error. If you call a method that exists in both classes itll use the child classes's method
