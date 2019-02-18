@@ -299,3 +299,56 @@ complier automatically injects `super();` into subclass constructors
 
 Polymorphism example: `Animal tabby = new Cat("Tabby", "salmon", "ball");`
 When you cast like this you can only access methods that are in both classes. If cat has any methods that animal doesnt, if you call it youll get an error. If you call a method that exists in both classes itll use the child classes's method
+
+
+Java composition: has-a relationship example
+```java
+public class Job {
+    private String role;
+    private long salary;
+    private int id;
+        
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
+    public long getSalary() {
+        return salary;
+    }
+    public void setSalary(long salary) {
+        this.salary = salary;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }    
+}
+```
+```java
+public class Person {
+
+    //composition has-a relationship
+    private Job job;
+   
+    public Person(){
+        this.job=new Job();
+        job.setSalary(1000L);
+    }
+    public long getSalary() {
+        return job.getSalary();
+    }
+}
+```
+```java
+public class TestPerson {
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        long salary = person.getSalary();
+    }
+}
+```
