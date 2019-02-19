@@ -352,3 +352,10 @@ public class TestPerson {
     }
 }
 ```
+can only call `super();` in constructors
+can only either `super();` or `this();` in constructors
+
+calling .length() on a multidimensional array will get you the base length 
+ex. `int[][] a = new int[2][3]` base length is 2
+
+if two reference vars point to the same obj and you make changed to the obj through one of them, that will reflect in both because they both point to the same obj
