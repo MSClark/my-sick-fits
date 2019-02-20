@@ -55,6 +55,7 @@ same method name in the same class but different arguments
 ### Unit tests
 
 # Java Notes
+identifiers/variable names can start with $ _ or char
 
 You can put an underscore anywhere in numeric literals to improve readability with java 7 [Underscores in Numeric Literals](https://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html)
 
@@ -68,6 +69,8 @@ instance variable is specific to an instance of a class
 double and long not allowed in switch statements
 
 cant manipulate instance variables in a static context such as a method with a static signature
+
+local variables dont get default initialization
 
 default for char is a space
 
@@ -359,3 +362,4 @@ calling .length() on a multidimensional array will get you the base length
 ex. `int[][] a = new int[2][3]` base length is 2
 
 if two reference vars point to the same obj and you make changed to the obj through one of them, that will reflect in both because they both point to the same obj
+
