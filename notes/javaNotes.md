@@ -363,3 +363,4 @@ ex. `int[][] a = new int[2][3]` base length is 2
 
 if two reference vars point to the same obj and you make changed to the obj through one of them, that will reflect in both because they both point to the same obj
 
+cannot cast string to comparable obj
