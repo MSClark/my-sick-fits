@@ -364,3 +364,6 @@ ex. `int[][] a = new int[2][3]` base length is 2
 if two reference vars point to the same obj and you make changed to the obj through one of them, that will reflect in both because they both point to the same obj
 
 cannot cast string to comparable obj
+
+invoking static overidden methods on child objects will result in calling the parent method. in the case of `A a = new B(); a.run();` if A and B have the `run` method as static, A's run will be called
+
