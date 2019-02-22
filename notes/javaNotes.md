@@ -367,3 +367,11 @@ cannot cast string to comparable obj
 
 invoking static overidden methods on child objects will result in calling the parent method. in the case of `A a = new B(); a.run();` if A and B have the `run` method as static, A's run will be called
 
+cannot use more restrictive access modifiers for child entities 
+
+in java 8 interfaces can have default methods and static methods. This was added so you can update or expand an interface without breaking everything implementing it. default methods just specify an implementation. Static methods are the same as default methods, except they cant be overriden 
+
+if you implement two interfaces that have the same method signature but you override it then it wont error out
+
+annanamous objects: ex. new A.show(); creates obj in heap but not reference variable in stack and will have default obj values. Only good if youre going to use an obj once and never again. 
+
