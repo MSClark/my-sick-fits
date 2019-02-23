@@ -375,3 +375,6 @@ if you implement two interfaces that have the same method signature but you over
 
 annanamous objects: ex. new A.show(); creates obj in heap but not reference variable in stack and will have default obj values. Only good if youre going to use an obj once and never again. 
 
+will get unsupportedTemporalTimeException when formatting dates wrong, such as if you format with a time and you just have a date obj
+
+ctrl-click on datetimeformatter obj in intelli j to go to documentation
