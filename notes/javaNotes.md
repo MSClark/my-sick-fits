@@ -404,3 +404,66 @@ Thread myThread = new Thread(() -> Syetem.out.println("hello"));
 myThread.run();
 ```
 use annotation `@FunctionalInterface` for interfaces meant for lambdas
+
+deep equals method expects multilevel arrays and will error out if you give it a single dimension array
+
+ExceptionInInitializer is thrown by the jvm, illegalargument, io, and numberformat are thrown by their wrapper classes of java.lang
+
+only one package statement allowed per file `package com.test;`
+
+main method can be final, can be in the form `public static final void main(String... c)` so you can use the var args operator and itll work as main method because the jvm looks for the main signature with arguements passed in of an array of strings
+
+if youre going to use variable names as case labels such as `case c1: ...` c1 needs to be final
+
+when declaring multiple vars in a for loop if you do `for(int i=0,j=0;...)` youre fine, but `for(inti=0, int j=0)` doesnt compile
+
+you can actually just have a for loop with no body `for(int i=0; i<10; i++);` its stupid, but it compiles
+
+stringbuilder capacity upon empty initialization is 16 if you were to initialize it with "java" it would be 20. So its always 16 more than whats in it. 
+
+System.out.print() will not compile because java is stupid
+
+interface variables are implicitely static and final so theyre constants
+you can access interface fields either by interface.field or just by field in an implementing class
+```java
+class Whiz implements A{
+    public static void main(String[] args) {
+        System.out.println(A.s);
+        System.out.println(A.value);
+        System.out.println(s);
+        System.out.println(value);
+    }
+}
+interface A{
+    static int value = 15;
+    String s = "value";
+}
+```
+
+ReminderL there are three types of variables - class, instance, and local
+Local variables MUST be initialized before using them
+
+when a class is loaded any static fields are initialized and static blocks are ran
+
+floats will not throw ArithemeticException when dividing by zero, they will assign infinity or NaN
+
+when you add chars youll get an int result
+
+widening followed by autoboxing wont compile such as `Double d = 10;`
+
+order of initialization 
+1. if theres a superclass initialize it first
+2. static variable declarations and initializers in the order they appear in the file
+3. Instance variable declarations and initializers, and any lone code blocks 
+4. constructor 
+
+the only time you should downcast is after you have already upcasted an object
+```java
+Dog dog = new Dog();         
+Animal animal = dog;         //upcasting to Animal
+if(animal instanceof Dog){ // testing if the Animal is a Dog       
+    Dog dog2 = (Dog) animal; //downcast
+}
+```
+
+`lengthOfMonth()` will tell you how long a month is for a LocalDate obj 
