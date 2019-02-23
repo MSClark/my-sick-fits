@@ -378,3 +378,29 @@ annanamous objects: ex. new A.show(); creates obj in heap but not reference vari
 will get unsupportedTemporalTimeException when formatting dates wrong, such as if you format with a time and you just have a date obj
 
 ctrl-click on datetimeformatter obj in intelli j to go to documentation
+
+lambda functions:
+ex. `stuff = () -> System.out.println("hi");`
+theyre a lot like arrow functions in js, theyre setting variables to functions and you can pass them around and into other methods
+parameters still need types
+if the function is one line the compiler will use that line as the return so you dont need a return keyword; youll actually get an error if you have the return keyword in a one line lambda function
+when declaring a lambda function based off an interface that interface should only have one method otherwise the compiler gets confused cause its still dumb
+
+Ananamous inner class:
+ex.
+```java
+Greeting ineerClassGreeting = new Greeting() {
+    public void perform(){
+        System.out.println("hi");
+    }
+};
+```
+Doesnt have a name and provides implementation inline as well as creating an instance at the same time.
+Can perform the same functionality of lambdas for the most part
+Interfaces for lambdas need to have only one method
+Thread example 
+```java
+Thread myThread = new Thread(() -> Syetem.out.println("hello"));
+myThread.run();
+```
+use annotation `@FunctionalInterface` for interfaces meant for lambdas
