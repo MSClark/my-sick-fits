@@ -424,7 +424,7 @@ stringbuilder capacity upon empty initialization is 16 if you were to initialize
 System.out.print() will not compile because java is stupid
 
 interface variables are implicitely static and final so theyre constants
-you can access interface fields either by interface.field or just by field in an implementing class
+you can access interface fields either by `interface.field` or just by field in an implementing class
 ```java
 class Whiz implements A{
     public static void main(String[] args) {
@@ -440,7 +440,7 @@ interface A{
 }
 ```
 
-ReminderL there are three types of variables - class, instance, and local
+Reminder there are three types of variables - class, instance, and local
 Local variables MUST be initialized before using them
 
 when a class is loaded any static fields are initialized and static blocks are ran
