@@ -522,3 +522,24 @@ overloaded methods have to change the argument list
 join() and spliterator is new to java 8 
 
 default array list size is 10 
+
+cant declare an array then initialize it like this 
+```java
+int[] ints;
+ints = {1,2,3};
+```
+exception variable is implicitly final
+
+arrays have default initializations even in methods
+
+you can do assignment in loop conditions
+
+you can do `double d =10`, but not `Double d=10`
+
+when modding(taking 3%2) java will always make it so the result will take the sign of the numerator so -3 % 2 = -1
+
+when overriding you cant throw new or broader checked exceptions, but you can do so with unchecked exceptions
+
+overloading is only determined by changing the number of arguements 
+
+arraylist.set() will return removed value
