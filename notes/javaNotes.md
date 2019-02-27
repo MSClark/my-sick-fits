@@ -467,3 +467,58 @@ if(animal instanceof Dog){ // testing if the Animal is a Dog
 ```
 
 `lengthOfMonth()` will tell you how long a month is for a LocalDate obj 
+
+running a binary search on an array will return the index of the found item `Arrays.BinarySearch(ints, -1)`
+
+if you have throws exception on a method you must handle it somewhere in the method
+
+you can only have 1 finally statement in a try catch block
+
+variable shadowing is when a variable is delcared to have the same name as one from an outer scope
+variable hiding is the same except its doing so from a parent class
+
+static import example `import static java.lang.Math.Abs;`
+
+.equals on wrappers will check the wrapper type and primitive value, if either dont match, youll get false
+
+double 10.0 == int 10 true
+
+update part of for loop (the 3rd statement) happens at the end of each iteration
+
+switch is more efficient than nested ifs
+
+you can nest switch statements
+
+when overriding you can return a different type if its a subtype of the original method's return type such as Number and Integer
+
+dot operator has higher precedence than parenthesis
+
+abstract classes cant be final, cant be instantiated 
+
+you cant override default methods
+
+can invoke static method via class name or instance variable
+
+comparind Double 10.0 and int 10 will result in the double unwrapping and comparing resulting in true
+
+cant use == with two wrappers
+
+.BYTES is # of bytes .SIZE is # of bits
+
+return type isnt actually part of a method signature, still required though
+
+fields in an interface are implictely public static final and you cant change the modifier
+
+can declare interface as abstract, but theres no point
+
+jvm throws arrayindexoutofbounds and stackoverflow
+
+final variables must be initialized at declaration
+
+native keyword can only be applied to methods
+
+overloaded methods have to change the argument list
+
+join() and spliterator is new to java 8 
+
+default array list size is 10 
