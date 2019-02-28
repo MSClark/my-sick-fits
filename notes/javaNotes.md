@@ -562,3 +562,14 @@ System.out.println(a==b c==d e==f g==h);
 
 if you decrement a value past its max value such as an int past -2147483648 itll go to its max value
 
+interface abstract methods are implicitely public so you need to declare them as public when implementing them
+
+always choose to implement an interface over extending a class
+
+Math.random() returns a vale less than 1: a double 
+
+enum constructors must be either package private or private 
+
+you can create string objects directly from stringbuilders
+
+if you have a block that throws a checked exception, if you call that block you need to put that call in a try catch
