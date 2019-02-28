@@ -543,3 +543,22 @@ when overriding you cant throw new or broader checked exceptions, but you can do
 overloading is only determined by changing the number of arguements 
 
 arraylist.set() will return removed value
+
+there are 5 constructors in java lang class
+
+Integer will cache values from -127 to 128 meaning if you use `==` to compare two Integers itll return true, but if one is outside that range Integer will return a new Integer object upon creation 
+```java
+Integer a = new Integer(127);
+Integer b = new Integer(127);
+Integer c = 127;
+Integer d = 127;
+Integer e = new Integer(200);
+Integer f = new Integer(200);
+Integer g = 200;
+Integer h = 200;
+System.out.println(a==b c==d e==f g==h);
+//false true false false 
+```
+
+if you decrement a value past its max value such as an int past -2147483648 itll go to its max value
+
