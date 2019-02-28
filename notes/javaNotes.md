@@ -573,3 +573,9 @@ enum constructors must be either package private or private
 you can create string objects directly from stringbuilders
 
 if you have a block that throws a checked exception, if you call that block you need to put that call in a try catch
+
+finally is always executed even if theres a return statement before it
+
+child exceptions can be listed first in catch hierarchy, parents cant otherwise it wont compile
+
+only primitives get default initilization as instance members
