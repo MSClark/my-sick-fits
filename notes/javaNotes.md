@@ -23,7 +23,7 @@ if you ever want a constants interface that just holds a bunch of constants just
 cant create instance of an interface
 interfaces are adjectives ex. drivable usually want to add "able" to end of name or "can" as prefix
 fields are constant
-automatically public abstract so no need to type that
+automatically public abstract final so no need to type that
 if its public in the interface it needs to be public in its implementation
 all methods must be implemented
 defender classes can provide default implementation in interface, use keyword default in method signature
@@ -400,7 +400,7 @@ Can perform the same functionality of lambdas for the most part
 Interfaces for lambdas need to have only one method
 Thread example 
 ```java
-Thread myThread = new Thread(() -> Syetem.out.println("hello"));
+Thread myThread = new Thread(() -> System.out.println("hello"));
 myThread.run();
 ```
 use annotation `@FunctionalInterface` for interfaces meant for lambdas
@@ -423,7 +423,7 @@ stringbuilder capacity upon empty initialization is 16 if you were to initialize
 
 System.out.print() will not compile because java is stupid
 
-interface variables are implicitely static and final so theyre constants
+interface variables are implicitely public static and final so theyre constants
 you can access interface fields either by `interface.field` or just by field in an implementing class
 ```java
 class Whiz implements A{
@@ -579,3 +579,5 @@ finally is always executed even if theres a return statement before it
 child exceptions can be listed first in catch hierarchy, parents cant otherwise it wont compile
 
 only primitives get default initilization as instance members
+
+static methods cant be overriden 
