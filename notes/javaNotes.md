@@ -581,3 +581,4 @@ child exceptions can be listed first in catch hierarchy, parents cant otherwise 
 only primitives get default initilization as instance members
 
 static methods cant be overriden 
+ I PASSED!!
