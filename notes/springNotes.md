@@ -9,4 +9,4 @@ DispatcherServlet identifies the correct view (ViewResolver).
 DispatcherServlet makes the model available to view and executes it.
 DispatcherServlet returns HTTP Response Back.
 Flow : http://docs.spring.io/spring-framework/docs/2.0.8/reference/images/mvc.png
-![](http://docs.spring.io/spring-framework/docs/2.0.8/reference/images/mvc.png)
+![Flow](http://docs.spring.io/spring-framework/docs/2.0.8/reference/images/mvc.png)
