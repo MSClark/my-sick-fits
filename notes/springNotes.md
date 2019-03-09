@@ -13,3 +13,28 @@ Front Controller = Dispacher servlet
 Flow : http://docs.spring.io/spring-framework/docs/2.0.8/reference/images/mvc.png
 ![Flow](http://docs.spring.io/spring-framework/docs/2.0.8/reference/images/mvc.png)
 
+### Forms
+if you dont specify a http method on a form it defaults to Get
+POST is more secure, wont send raw data over url, will be sent as body of request
+if you have `@RequestMapping("/login")` and dont specify method itll be used for all http request types, get post etc
+
+##Beans and autowiring
+Normally the login service class would be tightly coupled to the login controller because the controller cant validate a login without an instance of the login service `LoginService service = new LoginService();`
+In order to uncouple we will use `@Component` on the login service to tell spring that I want you to handle instantiation and injection of this object where I need it. Its a spring bean?
+On the controller class we call 
+```java 
+@Autowired
+LoginService service
+```
+to ask spring for an instance of the loginservice class. This is an example of the IOC. 
+Service could be an interface
+
+## Basic annotations
+if bean is handling business logic use `@Service`
+if bean is handling requests from the browser use `@Controller`
+if bean is being used to save to the db use `@Repository`
+`@Component` is generic for all 3 above - is a flag that says hey I want spring to handle this entity
+`@Autowire` is a flag that will literally autowire it in, this includes dependancy injection and instantiation
+`@SpringBootApplication` will start component scan in package and any sub packages
+`@ComponentScan` will search for components and you can specify packages `@ComponentScan("com.test.pack1)`
+Beans have types of packages such as com.test.pack1
