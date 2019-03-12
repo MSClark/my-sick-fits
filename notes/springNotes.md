@@ -38,3 +38,9 @@ if bean is being used to save to the db use `@Repository`
 `@SpringBootApplication` will start component scan in package and any sub packages
 `@ComponentScan` will search for components and you can specify packages `@ComponentScan("com.test.pack1)`
 Beans have types of packages such as com.test.pack1
+
+## Sessions
+Model and request fields are only within the scope of a particular request in order to access fields accross controllers and views we need to use a session
+`@SessionAttributes("name")` will look at the model and if theres an attribute called name itll take that from the model and store it 
+
+
