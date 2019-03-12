@@ -18,7 +18,7 @@ if you dont specify a http method on a form it defaults to Get
 POST is more secure, wont send raw data over url, will be sent as body of request
 if you have `@RequestMapping("/login")` and dont specify method itll be used for all http request types, get post etc
 
-##Beans and autowiring
+## Beans and autowiring
 Normally the login service class would be tightly coupled to the login controller because the controller cant validate a login without an instance of the login service `LoginService service = new LoginService();`
 In order to uncouple we will use `@Component` on the login service to tell spring that I want you to handle instantiation and injection of this object where I need it. Its a spring bean?
 On the controller class we call 
