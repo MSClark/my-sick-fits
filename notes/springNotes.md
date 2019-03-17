@@ -59,3 +59,5 @@ using jstl to be able to bind fields in the jsp to the todo bean and binding the
 			</fieldset>
 		</form:form>
 ```
+Double binding - bean is mapped to form(jsp), and form is mapped to a bean
+Validation changes need to be made to the all parts of the MVC
