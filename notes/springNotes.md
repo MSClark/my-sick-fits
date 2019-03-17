@@ -43,4 +43,19 @@ Beans have types of packages such as com.test.pack1
 Model and request fields are only within the scope of a particular request in order to access fields accross controllers and views we need to use a session
 `@SessionAttributes("name")` will look at the model and if theres an attribute called name itll take that from the model and store it 
 
+### Side notes
+`required="required"` HTML5 attribute to make a form field required
 
+## Serverside validation and comamnd beans/form backing beans
+allows for binding of object/bean to a form for validation so you dont have to have a bunch of request params to pass through, just a single object
+will be using bean validation api
+using jstl to be able to bind fields in the jsp to the todo bean and binding the command bean in the htmld
+```java
+<form:form method="post" commandName="todo"> <!-- binds todo bean to this jsp -->
+			<fieldset class="form-group">
+				<form:label path="desc">Description: </form:label>
+				<form:input path="desc" type="text" class="form-control" required="required"/> 
+				<button type="submit" class="btn btn-success">Submit</button>
+			</fieldset>
+		</form:form>
+```
