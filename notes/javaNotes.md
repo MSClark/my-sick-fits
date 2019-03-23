@@ -581,4 +581,8 @@ child exceptions can be listed first in catch hierarchy, parents cant otherwise 
 only primitives get default initilization as instance members
 
 static methods cant be overriden 
+
+static binding for polymorphism is done through overloading and is determined at compile time
+dynamic binding is done through overriding and is determined at run time
+
  I PASSED!!
