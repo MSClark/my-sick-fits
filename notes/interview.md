@@ -3,7 +3,7 @@
 ## Tibco
 
 ## SQL
-
+[w2schools](https://www.w3schools.com/sql/sql_join.asp)
 ### sample questions
 1.  return employee record with highest salary
 ```sql

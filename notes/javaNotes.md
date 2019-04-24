@@ -386,7 +386,7 @@ parameters still need types
 if the function is one line the compiler will use that line as the return so you dont need a return keyword; youll actually get an error if you have the return keyword in a one line lambda function
 when declaring a lambda function based off an interface that interface should only have one method otherwise the compiler gets confused cause its still dumb
 
-Ananamous inner class:
+Anonyamous inner class:
 ex.
 ```java
 Greeting ineerClassGreeting = new Greeting() {
