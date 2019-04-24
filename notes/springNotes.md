@@ -1,3 +1,5 @@
+`@SpringBootApplication` initializes component scan and spring boot auto configuration
+`SpringApplication.run(className.class, args)` actually runs the app
 ## Basic pom.xml notes
 spring boot starter parent `<parent>` in pom file specifies version of dependencies default plugins, jave version and is used in a hierarchal way in that it in herits from other sources
 spring boot starter web - provides dependencies needed to run web apps such as validation, logging, data binding, tomcat etc. 
@@ -61,4 +63,3 @@ using jstl to be able to bind fields in the jsp to the todo bean and binding the
 ```
 Double binding - bean is mapped to form(jsp), and form is mapped to a bean
 Validation changes need to be made to the all parts of the MVC
-
