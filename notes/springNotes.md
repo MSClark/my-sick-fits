@@ -45,7 +45,8 @@ if bean is being used to save to the db use `@Repository`
 `@Component` is generic for all 3 above - is a flag that says hey I want spring to handle this entity
 `@Autowire` is a flag that will literally autowire it in, this includes dependancy injection and instantiation
 `@SpringBootApplication` will start component scan in package and any sub packages
-`@ComponentScan` will search for components and you can specify packages `@ComponentScan("com.test.pack1)`
+`@ComponentScan` will search for components and you can specify packages `@ComponentScan("com.test.pack1)` 
+Component scan will happen from the start file down the package structure so if you move a bean out of that scan scope spring will not know where it went
 Beans have types of packages such as com.test.pack1
 
 ## Sessions
@@ -54,6 +55,7 @@ Model and request fields are only within the scope of a particular request in or
 
 ### Side notes
 `required="required"` HTML5 attribute to make a form field required
+- can either configure spring through xml, java via annotations or both
 
 ## Serverside validation and comamnd beans/form backing beans
 allows for binding of object/bean to a form for validation so you dont have to have a bunch of request params to pass through, just a single object
@@ -76,3 +78,16 @@ Validation changes need to be made to the all parts of the MVC
 
 ## Interview Questions
 [interview_questions](https://www.baeldung.com/spring-interview-questions)
+
+## Spring Framework Configuration
+
+### Spring Stereotypes
+Examples `@Component, @Controller, @RestController (represents @Controller & @ResponseBody), @Repository, @Service`
+
+### Component Scan
+`@SpringBootApplication` triggers component scan from current package and down 
+if you move code above the base package you can specify where to scan for beans by
+```java
+@SpringBootApplication
+@ComponentScan(basePackages = {"clark.services", "clark.springframework"})
+```
