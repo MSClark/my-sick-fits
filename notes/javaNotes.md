@@ -40,6 +40,7 @@ abstract methods need to be implemented
 creates constant vars
 prevents methods from being overriden
 prevents inheritence
+![final](https://www.geeksforgeeks.org/wp-content/uploads/final-keyword-in-java.jpg)
 
 ### Overriding
 same method name in child class, but different implementation

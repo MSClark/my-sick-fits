@@ -20,7 +20,7 @@ if you dont specify a http method on a form it defaults to Get
 POST is more secure, wont send raw data over url, will be sent as body of request
 if you have `@RequestMapping("/login")` and dont specify method itll be used for all http request types, get post etc
 
-## Beans and autowiring
+## Beans, injection, and autowiring
 Normally the login service class would be tightly coupled to the login controller because the controller cant validate a login without an instance of the login service `LoginService service = new LoginService();`
 In order to uncouple we will use `@Component` on the login service to tell spring that I want you to handle instantiation and injection of this object where I need it. Its a spring bean?
 On the controller class we call 
@@ -30,6 +30,13 @@ LoginService service
 ```
 to ask spring for an instance of the loginservice class. This is an example of the IOC. 
 Service could be an interface
+- @Autowired vs @Inject - autowired is a spring specific annotation and inject is a java annotation
+
+### Injection
+can be done by
+- setter injection
+- constructor injection - best type
+- field injection
 
 ## Basic annotations
 if bean is handling business logic use `@Service`
@@ -63,3 +70,9 @@ using jstl to be able to bind fields in the jsp to the todo bean and binding the
 ```
 Double binding - bean is mapped to form(jsp), and form is mapped to a bean
 Validation changes need to be made to the all parts of the MVC
+
+## SOLID Design Principles
+![SOLID](https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj2j-uEtcTlAhU9CjQIHUKUDpgQjRx6BAgBEAQ&url=https%3A%2F%2Fdevopedia.org%2Fsolid-design-principles&psig=AOvVaw0dti8pePAOWeqRXux1DAJE&ust=1572539701170263)
+
+## Interview Questions
+[interview_questions](https://www.baeldung.com/spring-interview-questions)
