@@ -72,7 +72,7 @@ Double binding - bean is mapped to form(jsp), and form is mapped to a bean
 Validation changes need to be made to the all parts of the MVC
 
 ## SOLID Design Principles
-![SOLID](https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj2j-uEtcTlAhU9CjQIHUKUDpgQjRx6BAgBEAQ&url=https%3A%2F%2Fdevopedia.org%2Fsolid-design-principles&psig=AOvVaw0dti8pePAOWeqRXux1DAJE&ust=1572539701170263)
+![SOLID](https://devopedia.org/images/article/177/8101.1558682601.png)
 
 ## Interview Questions
 [interview_questions](https://www.baeldung.com/spring-interview-questions)
