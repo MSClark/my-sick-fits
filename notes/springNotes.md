@@ -91,3 +91,12 @@ if you move code above the base package you can specify where to scan for beans 
 @SpringBootApplication
 @ComponentScan(basePackages = {"clark.services", "clark.springframework"})
 ```
+### Spring Bean Scopes
+- 7 scopes
+- Singleton - only one instance of the bean is created in the IOC container
+- Prototype - a new instance is madde each time the bean is requested
+- Request - single instance per http request, only valid in the context of a web aware spring app context
+- Session - a single instance per http session, only valid in the context of a web aware spring app context 
+- Global session - a single instance per global session, only used on a portlet context
+- Application - bean is scoped to the lifecycle of the servlet context
+- Websocket - scopes a sinle bean defininition to the lifecycle of a websocket 
