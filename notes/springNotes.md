@@ -56,6 +56,7 @@ Model and request fields are only within the scope of a particular request in or
 ### Side notes
 `required="required"` HTML5 attribute to make a form field required
 - can either configure spring through xml, java via annotations or both
+- can use TCP monitor plugin to see requests in intelliJ
 
 ## Serverside validation and comamnd beans/form backing beans
 allows for binding of object/bean to a form for validation so you dont have to have a bunch of request params to pass through, just a single object
@@ -87,12 +88,17 @@ Examples `@Component, @Controller, @RestController (represents @Controller & @Re
 ### Component Scan
 `@SpringBootApplication` triggers component scan from current package and down 
 if you move code above the base package you can specify where to scan for beans by
+it also is a replacement for `@Configuration`, `@EnableAutoConfiguration` and,  `@ComponentScan`
+To show the auto config report start spring boot with --debug
+You can exclude certain classes from auto config by doing @EnableAutoConfiguration(exclude={foo.class, bar.class})
 ```java
 @SpringBootApplication
 @ComponentScan(basePackages = {"clark.services", "clark.springframework"})
 ```
+^ this will tell spring to scan in additional packages not below the current directory
 ### Spring Bean Scopes
-- 7 scopes
+- 7 scopes - singleton is default
+- set either by xml in bean def or java @Scope annotation in config file
 - Singleton - only one instance of the bean is created in the IOC container
 - Prototype - a new instance is madde each time the bean is requested
 - Request - single instance per http request, only valid in the context of a web aware spring app context
@@ -100,3 +106,4 @@ if you move code above the base package you can specify where to scan for beans 
 - Global session - a single instance per global session, only used on a portlet context
 - Application - bean is scoped to the lifecycle of the servlet context
 - Websocket - scopes a sinle bean defininition to the lifecycle of a websocket 
+
