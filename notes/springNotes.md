@@ -107,3 +107,8 @@ You can exclude certain classes from auto config by doing @EnableAutoConfigurati
 - Application - bean is scoped to the lifecycle of the servlet context
 - Websocket - scopes a sinle bean defininition to the lifecycle of a websocket 
 
+## Hibernate
+
+DDL = data definition language - aql language to define tables and such
+DML = Data manipulation language - sql language to manupulate those tables
+
