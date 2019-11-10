@@ -108,7 +108,20 @@ You can exclude certain classes from auto config by doing @EnableAutoConfigurati
 - Websocket - scopes a sinle bean defininition to the lifecycle of a websocket 
 
 ## Hibernate
+- 4 types of entity relationships: @OneToOne, @OneToMany, @ManyToMany, and @ManyToOne
+- DDL = data definition language - aql language to define tables and such
+- DML = Data manipulation language - sql language to manupulate those tables
 
-DDL = data definition language - aql language to define tables and such
-DML = Data manipulation language - sql language to manupulate those tables
+Fetch types - Lazy and Eager
+- Lazy will be retrieved only when its needed
+- Eager will be retrieved on start
 
+Cascade types control how changes are cascaded from parents to children
+- no default cascade type
+- Persist, merge, refresh, remove, detach, all
+- default persistance strategy is a single table
+	- can result in a lot of unused db columns
+You can have jpa update timestamps with @CreationTimestamp and @UpdateTimestamp
+
+## Lombok
+- use @NoArgsContructor and @AllArgsConstructor with @Builder on data model object to get builder pattern
