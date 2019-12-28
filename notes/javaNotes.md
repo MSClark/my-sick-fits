@@ -596,6 +596,8 @@ Thread.join() will wait until thread is finished
 synchronized methods will make sure threads dont step on each other - makes sure all threads can see current state of stuff and who has the lock
 when you have Synchronized(someObject) its best someObject is an object just for locking, not the actual resource you want to lock
 dont need to use synchronization with thread safe objects/classes such as countdownlatch or stringbuffer
+### Thread lifecycle
+![lifecycle](https://www.tutorialspoint.com/java/images/Thread_Life_Cycle.jpg)
 ### Thread pools
 `ExecutorService executor = Executors.newFixedThreadPool(2);`
 executer.submit(new Processor(i)) 
