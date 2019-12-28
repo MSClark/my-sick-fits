@@ -503,6 +503,7 @@ export default TodoItem
  [Lifecycle method changes](https://reactjs.org/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes)  
  [Visualization of lifecycle methods](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)  
  [Lifecycle cheatsheet](https://gist.github.com/bvaughn/923dffb2cd9504ee440791fade8db5f9)  
+ ![lifecycle Methods](https://s3.amazonaws.com/codementor_content/2016-Jul/reactjs-qs1.png)
 * new 1.7 methods `getDerivedStateFromProps` `getSnapshotBeforeUpdate`
  ## Conditional Rendering
 

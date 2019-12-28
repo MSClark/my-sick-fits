@@ -587,3 +587,174 @@ static methods cant be overriden
 static binding for polymorphism is done through overloading and is determined at compile time
 dynamic binding is done through overriding and is determined at run time
 
+## Multithreading
+[multithreading_example_code](https://github.com/Beerkay/JavaMultiThreading/tree/master/JavaMultiThreadingCodes/src)
+Can create a thread class by implementing the runnable interface or extending the thread class
+Use Thread.start() to start a thread, dont use .run(), thatll run it in the main thread
+Volitile keyword keeps the OS from caching variables so you dont get threads that have an old value of something
+Thread.join() will wait until thread is finished
+synchronized methods will make sure threads dont step on each other - makes sure all threads can see current state of stuff and who has the lock
+when you have Synchronized(someObject) its best someObject is an object just for locking, not the actual resource you want to lock
+dont need to use synchronization with thread safe objects/classes such as countdownlatch or stringbuffer
+### Thread pools
+`ExecutorService executor = Executors.newFixedThreadPool(2);`
+executer.submit(new Processor(i)) 
+Thread pools are better than starting threads because theres a lot of overhead in starting a new thread
+
+### Countdown Latches
+countdown latch is a thread safe class
+```java
+class Processor implements Runnable {
+
+    private CountDownLatch latch;
+
+    public Processor(CountDownLatch latch) {
+        this.latch = latch;
+    }
+
+    public void run() {
+        System.out.println("Started.");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException ignored) {}
+        latch.countDown();
+    }
+}
+
+public class App {
+
+    public static void main(String[] args) {
+        CountDownLatch latch = new CountDownLatch(3);
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+        for (int i = 0; i < 3; i++) {
+            executor.submit(new Processor(latch));
+        }
+        executor.shutdown();
+        try {
+            // Application’s main thread waits, till other service threads which are
+            // as an example responsible for starting framework services have completed started all services.
+            latch.await(); // waits til countdown latch = 0
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Completed.");
+    }
+}
+```
+### Producer-comsumer
+Will allow for two methods to interact with a queue in an ordered fashion with thread synchronization
+This abstracts some of the low level concurrency logic out with the concurrency api, can be replaced with wait() and notify(), but is best practice
+```java
+ private static BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
+
+    public static void main(String[] args) throws InterruptedException {
+
+        Thread t1 = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    producer();
+                } catch (InterruptedException ignored) {}
+            }
+        });
+
+        Thread t2 = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    consumer();
+                } catch (InterruptedException ignored) {}
+            }
+        });
+        t1.start();
+        t2.start();
+//        t1.join();
+//        t2.join();
+
+        // Pause for 30 seconds and force quitting the app (because we're
+        // looping infinitely)
+        Thread.sleep(30000);
+        System.exit(0);
+    }
+
+    private static void producer() throws InterruptedException {
+        Random random = new Random();
+        while (true) {//loop indefinitely
+            queue.put(random.nextInt(100));//if queue is full (10) waits
+        }
+    }
+
+    private static void consumer() throws InterruptedException {
+        Random random = new Random();
+        while (true) {
+            Thread.sleep(100);
+            if (random.nextInt(10) == 0) {
+                Integer value = queue.take();//if queue is empty waits
+                System.out.println("Taken value: " + value + "; Queue size is: " + queue.size());
+            }
+        }
+    }
+```
+### Wait & Notify
+Wait can only be called in synchronized blocks
+Hands over its lock control?
+pauses thread until synchronized block gets back its lock
+Notify wakes up waiting thread, but doesnt give the lock back
+when you exit the synchronized block you release the lock
+### Reentrant lock
+- await() is the same as wait()
+    - wait() is from Object which all objects inherit so you cant call the new method wait() in the Reentrant class so they called it await()
+- signal() is the same as notify()
+Is a lock that needs to be locked and unlocked the same number of times?
+This type of lock needs a `Condition` object to call wait and notify with
+Advantage over synchronized - arent limited to a synchronized block and can pass the lock along to other methods, its more scalable, and allows for lock polling and lock timeouts
+### Deadlock
+2 resolutions - either lock your locks in the same order or have a acquire locks method that will do `lock.tryLock()` to get it. If it cant you can sleep til you get it. if you cant get the locks unlock the ones you have so other threads can use them
+### Semaphores
+Semaphore is an object that holds a count of "permits"
+semaphore.release() and .acquire() will decrement and increment the number of "permits"
+Theyre used to control access to a resource
+semaphore has fairness attribute boolean that if set to true says whoever calls .acquire() first gets the permit
+### Callable & Future 
+Allows threadpools to throw exceptions
+Type of callable needs to match future
+future.get() will get the result
+```java
+public class App {
+
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService executor = Executors.newCachedThreadPool();
+
+        //anonymous call of Callable
+        Future<Integer> future = executor.submit(new Callable<Integer>() {
+
+            @Override
+            //return value is Integer
+            public Integer call() throws TimeoutException {
+                Random random = new Random();
+                int duration = random.nextInt(4000);
+                if (duration > 2000) {
+                    throw new TimeoutException ("Sleeping for too long.");
+                }
+                System.out.println("Starting ...");
+                try {
+                    Thread.sleep(duration);
+                } catch (InterruptedException ignored) {}
+                System.out.println("Finished.");
+                return duration;
+            }
+        });
+        executor.shutdown();
+//        executor.awaitTermination(1, TimeUnit.DAYS);
+        try {
+            //get returned value from call()
+            System.out.println("Result is: " + future.get());
+
+        } catch (InterruptedException ignored) {
+        } catch (ExecutionException e) {
+            TimeoutException ex = (TimeoutException) e.getCause();
+            System.out.println(ex.getMessage());
+        }
+    }
+}
+```
+### Interrupting threads
+thread.interrupt is simply a flag, it doesnt stop the thread. YOu can check if a thread has been interrupted with `Thread.currentThread.isInterrupted()`

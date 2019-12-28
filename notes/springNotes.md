@@ -125,3 +125,4 @@ You can have jpa update timestamps with @CreationTimestamp and @UpdateTimestamp
 
 ## Lombok
 - use @NoArgsContructor and @AllArgsConstructor with @Builder on data model object to get builder pattern
+- when youre using the builder pattern if you have inherited fields you need to add @NoArgsContructor and @AllArgsConstructor to the parent files and maybe a constructor too
