@@ -592,10 +592,12 @@ dynamic binding is done through overriding and is determined at run time
 Can create a thread class by implementing the runnable interface or extending the thread class
 Use Thread.start() to start a thread, dont use .run(), thatll run it in the main thread
 Volitile keyword keeps the OS from caching variables so you dont get threads that have an old value of something
-Thread.join() will wait until thread is finished
+Thread.join() will wait until thread is finished i.e. it ensures the main thread is the last to finish
 synchronized methods will make sure threads dont step on each other - makes sure all threads can see current state of stuff and who has the lock
 when you have Synchronized(someObject) its best someObject is an object just for locking, not the actual resource you want to lock
 dont need to use synchronization with thread safe objects/classes such as countdownlatch or stringbuffer
+
+run() vs start() start will start a new thread and then call run() on that new thread, whereas run() will just call run() on the current (typically the main) thread
 ### Thread lifecycle
 ![lifecycle](https://www.tutorialspoint.com/java/images/Thread_Life_Cycle.jpg)
 ### Thread pools
@@ -709,7 +711,7 @@ Is a lock that needs to be locked and unlocked the same number of times?
 This type of lock needs a `Condition` object to call wait and notify with
 Advantage over synchronized - arent limited to a synchronized block and can pass the lock along to other methods, its more scalable, and allows for lock polling and lock timeouts
 ### Deadlock
-2 resolutions - either lock your locks in the same order or have a acquire locks method that will do `lock.tryLock()` to get it. If it cant you can sleep til you get it. if you cant get the locks unlock the ones you have so other threads can use them
+2 resolutions - either lock your locks in the same order OR have an acquire locks method that will do `lock.tryLock()` to get it. If it cant you can sleep til you get it. if you cant get the locks unlock the ones you have so other threads can use them
 ### Semaphores
 Semaphore is an object that holds a count of "permits"
 semaphore.release() and .acquire() will decrement and increment the number of "permits"
