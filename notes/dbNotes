@@ -1,0 +1,242 @@
+3 main problems with DB's - Efficnency, organization, concurrency and reliability 
+logical structure is what the users see
+physical structure is how the files are actually organized
+Data independance - user should be able to query data without knowing how its stored
+value set is the type - string, int 
+3 types of attributes
+- simple
+- composite - address - street state zip
+    - Address(apt#, house#) - surrounded by ()
+- multivalues - object - car - red - manual
+    - attributes of obj surrounded by {}
+nested attributes {previous degree(college, year, degree)}
+key attributes are unique - are underlined
+
+multivalues attr - double oval
+key attr - underlined
+
+entity set - all entities
+value set - all possible values - set of values associated with an attribute
+circle with a d in it means disjoint meaning an employee can only be one of the subclasses such as engineer
+opposite is circle with an O in it meaning they can be multiple subclasses
+
+generalization is where subclasses make up/derive a superclass
+double line refers to total relationship - where every superclass must belong to one of the subclasses
+
+categories - union types - can be union of several superclasses
+
+When to use an entity set vs another attribute - should satisfy one of the following to be a new entity
+- its more than the name of saomething; it has at least one non key attr
+- its the many in a many to one or many to many relationship
+
+An entity that does not have sufficient attributes to form a primary key is termed a weak entity
+
+Composite attribute - An attribute composed of multiple components each with individual existence
+
+
+
+
+
+RELATIONAL MODELING Week 2
+
+row is a tuple
+sequential keys are also called artificial keys or surrogate keys
+
+domain of an attribute is all the valid values
+
+tuples are surrounded by angle brackets
+a relation is a set of tubles
+relation ex - {<>, <>, <>}
+relation state is a subest of the cartesian product of the domains of its attributes
+cartesian product is just all possible combos between two domains
+
+Table = relation
+column header = attribute
+all possible column values = domain
+row = tuple
+table definition = schema of a relation
+populated table = state of the relation
+
+all values in a tuple are considered atomic
+
+
+CONSTRAINTS
+
+Three types - Inherent or implicit CONSTRAINTS, and schema based CONSTRAINTS, application based of semantic CONSTRAINTS
+
+Schema constraints - 3 main types - key, entity integrity, referential integrity, and domain
+super key means key must be unique 
+A key is a super key but not vice versa
+Minimal key is the min # of attributes to make it unique
+S = {R1, R2, Rn} refers to a database with several tables
+IC = integrity constraints
+Schema = S + IC 
+
+Entity integrity means primary keys cant be null
+
+Referential integrity.
+a foreign key must match with a primary key in another table if it doesnt exist it has to be null or it violates the constraint
+
+foreign key is a key that references the primary key of another table
+when multiple attributes are underlined they combine to form the primary key
+
+semantic constraint ex. max of 56 hrs worked per Week
+
+
+Relational algebra
+Selection and projection operations
+5 basic operations - projection selection union difference product
+
+Projection - pi is the symbol for it - basically selects columns
+doesnt include duplicate values
+
+Selection - sigma symbol - basically select query - gets rows based on conditions
+conditions are boolean operations and AND, OR, not
+
+Union - basically a inner join
+union compatible if they have the same # of attributes and their domains match
+
+Difference - basically an outer join - anything that doesnt exist in both tables
+
+R Intersection S = R - (R-S)
+
+Carrot is AND operation and upside down carrot is OR operation
+
+R-S != S-R
+
+
+JOIN operations
+
+when joining with common attribute names youll need to suffix them 
+Combination of selection and product is a theta join - looks like an infinity symbol 
+natural join doesnt have a subscript to specify what attr to join on
+
+DIVISION
+
+can be expressed by other operations
+R/S R attributes must be a superset of S
+resulting schema is schema of R - S
+only tuples in R that appear with every combo of S make the result
+
+renaming operator is ro
+
+
+
+
+SQL Week 3`
+
+Schema creation
+CREATE SCHEMA COMPANY (schema name) AUTHORIZATION(whos allowed to use it) 'JSMITH'
+Catalog is a collection of schemas
+Base tables are the tables physically in the DB
+Virtual relations (view) snapshot of a table
+
+Table creation example in first video at 10 mins
+
+Types int, integer, smallint, float, real, double, Char, varchar, bit, date, 
+
+Domain can be used as alias for type 
+ex. CREATE DOMAIN SSN_TYPE AS CHAR(9) whenever you refer to SSN_TYPE you mean char(9)
+
+CHECK clause
+DNUMBER INT NOT NULL CHECK (DNUMBER > 0 AND dNUMBER <21)
+
+Can set constraints with what to do on update or delete
+ex. CONSTRAINT SMPSUPERFK FOREIGN KEY (SUPER_SSN) REFERENCES EMPLOYEE(SSN) ON DELETE SET NULL ON UPDATE CASCADE
+
+TO use alias FROM EMPLOYEE AS E
+
+SELECT DISTINCT will not include duplicates
+Use UNION INTERSECT and EXCEPT between queries
+
+JOIN example
+
+SELECT DISTINCT PNUMBER FROM PROJECT, DEPARTMENT, EMPLOYEE WHERE DNUM=DUMBER AND MGR_SSN=SSN AND LNAME='SMITH'
+
+LIKE
+ex. WHERE address LIKE '%houston, tx%'
+ex. WHERE ssn LIKE '__1__908'
+
+INSERT INTO EMPLOYEE VALUES ()
+
+Insert only a couple columns from another query result
+ex. INSERT INTO WORKS_ON_INFO(emp_name, proj_name, hours) 
+SELECT e.lname, p.pname, w.hours 
+FROM project p, works_on w, employee e 
+WHERE p.pnmumber=w.pno and w.essn=e.ssn;
+
+Bulk loading of tables
+EX. CREATE TABLE D5EMPS LIKE employee
+(SELECT E.*
+FROM EMPLOYEE AS EMPLOYEE
+WHERE E.DNO=5)
+WITH DATA;
+
+update example
+ex. UPDATE PROJECT
+SET PLOCATION = 'DJKAS'
+DNUM=5
+WHERE PNUMBER = 10
+
+keywork for difference operation between two queries is MINUS
+
+embedded query 
+SELECT CID
+FROM CLIMBERS WHERE AGE >40
+AND cID IN (SELECT CID FROM CLIMBS WHERE ID = 1);
+
+look up more on exists?
+
+exists = Intersection
+not exists = difference 
+EXISTS UNIQUE will return true if no duplicates exist
+
+
+
+JOINS
+
+basic join
+
+1. SELECT CName
+FROM climbers, climbs
+WHERE CLIMBERS.CID = CLIMBS.CID
+
+2. Get the ids of climbers who have climbed the same route at least twice
+join with itself
+EX. 
+SELECT C1.CID
+FROM Climbs C1, Climbs C2
+WHERE C1.CID = C2.CID
+AND C1.RID=C2.RID
+AND C1.DAY <> C2.DAY OR C1.DURATION <> C2.DURATION
+
+3. Get ids of climbers who havnt climbed shit
+EX. 
+SELECT CNAME 
+FROM CLIMBERS
+WHERE CID NOT IN (sELECT cID FROM CLIMBS)
+
+4. get climbers who have climbed all routes
+EX. 
+SELECT CID FROM CLIMBS C1 
+WHERE NOT EXISTS (SELECT RID FROM ROUTES R WHERE NOT EXISTS(SELECT * FROM CLIMBS C2 WHERE C1.CID=C2.CID AND C2.RID=R.RID))
+
+
+Advanced joins and aggregation
+
+Counting ex.
+SELECT COUNT(DISTINCT RID) FROM ROUTES
+
+Group by - 
+can only select columns youre grouping by
+
+HAVING is a keyword you can use after group by as another filter
+
+OUTER JOIN - preserves rows by putting in nulls
+
+SELECT *
+FROM CLIMBERS C1
+LEFT OUTER JOIN CLMIBS C2
+ON C1.CID=C2.CID
+
+
