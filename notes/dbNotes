@@ -240,3 +240,78 @@ LEFT OUTER JOIN CLMIBS C2
 ON C1.CID=C2.CID
 
 
+
+WEEK 4 EER to relational schema
+
+1:1 relationship needs another table, if theres total participation by one side of the relationship just put the PK of the non total participation in the entity table of the total participation side
+For 1:1 without total participation: build a table with two columns, one column for each participating entity sets primary key. add successive columns, one for eacxh descrpitive attributes of the relationship
+
+For 1:1 with total participation: augment one extra coklumn to the table of the entity set with ttoial participation, put in there the priumaryu of the entity set without total participation
+
+For 1:n relationship without total participation: same as 1:1
+
+For 1:n with total participation on many side: add an extra column to the table of the entuty set on the many side put the pK of the entity set on the one side 
+
+For n:m just make a linking table with the pk's of both sides of the relationship - pk of this table is union of pk's comprising it
+
+For self referencing relationships pk is foreign key: add another column for relationship
+when its many to many self referencing, you need a linming table
+
+For weak entities you use the pk of the strong entity its attached to 
+dont need identifying relationship table
+ 
+
+Options for mapping specialization or generalization
+1. multiple relations-superclass and subclasses - extra column in subclass table with superclass key
+2. multiple relations-subclass relations only - all attributes form superclass are used in subclass table and there is no superclass table
+3. single relation with one type attr - only superclass table with a type attr in the table - could have null values
+4. SIngle relation with multiple type attr - only superclass table with subclass attrs
+
+Shared subclasses
+
+just add whatever attributes you need 
+
+
+WEEK 5 jdbc
+
+Result set is a pointer - starts pointing to before first row, can call rs.next() to move pointer down rows 
+same as a curser ^
+fetch size determines how many rows to bring to the client
+rs.close() closes curser on server and closes connection
+
+Best practices - 
+put conenction info in config file
+use conntection pool
+dont string concat parameterized queries
+handle exceptions locally with try catch
+use type 4 driver
+close all connections in finally block
+use prepared statements for common calls
+dont use select *
+get columns by name 
+
+Client server is typical modality
+
+Unstructured and semistructured data
+LOB - large object
+Blob is a string of bytes
+Clob is a character large object
+OID is object identifier
+
+XML needs a single root for the whole file
+XML is case sensitive
+7 types of nodes - root, element, attribute, processing instruction, namespace, comment
+DDL - data definition language
+
+
+XML as DDL
+DTD document type definition - old and not used anymore
+GUID - Global unique identifier 
+
+How to parse XML
+DOM and SAX are the two main parsers
+
+LOBs are inexpensive on import and expensive on export
+Data definition is the reverse
+HYbrid papproach is messy
+Marshalling is slow
